@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Comfortaa&family=Gothic+A1:wght@600&display=swap");
+
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+/* HomePage============================= */
+.outer {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* 화면에서 스크롤바 안보이게 */
+.outer::-webkit-scrollbar {
+  display: none;
+}
+
+.inner {
+  height: 100vh;
+}
+
+.home-outfit {
+  background-image: url("/public/images/mainSecond.jpg");
+  background-size: cover;
+}
+
+.home-color-match {
+  background-color: rgb(250 175 75);
+  position: relative;
+}
+
+.divider {
+  width: 100%;
+  height: 5px;
+  background-color: gray;
+}
+
+/* timeline========================================== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  z-index: 999;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-family: "Comfortaa", cursive;
+  top: 50%;
+  right: 40px;
+}
+
+.timeline svg {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.timeline-index {
+  display: flex;
+  flex-direction: column;
+  background-color: #202124;
+  padding: 15px 10px;
+}
+
+.timeline-topic {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-main,
+.timeline-outfit,
+.timeline-color {
+  background-color: white;
+  padding: 20px 15px;
+  color: rgb(163, 163, 163);
+}
+/* homeMain======================================================= */
+.homeMain {
+  height: 100vh;
+  transition: 1.5s;
+  background-position: center;
+  background-size: cover;
+}
+
+.home-main::before {
+  content: "";
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.7)
+  );
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-bar a {
+  text-decoration: none;
+  color: white;
+}
+.menu-bar h1 {
+  margin: 0;
+  font-size: 3.5em;
+  font-family: "Caveat", cursive;
+}
+
+.menu-bar h5 {
+  margin: 0;
+  text-align: center;
+  font-family: "Comfortaa", cursive;
+  margin-top: 3px;
+}
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.logo div:last-child {
+  display: flex;
+}
+.logo-stylist:hover {
+  color: white;
+}
+.menu-bar {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  margin: 0 40px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: white;
+  border-bottom: 3px solid white;
+}
+
+.menu:hover:after {
+  transform: scaleX(1);
+}
+
+.login-weather {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.login {
+  background-color: transparent;
+  border: none;
+  margin: 0 20px;
+  color: white;
+  font-weight: bold;
+}
+.login-icon {
+  font-size: 1.7em;
+}
+.img-slide-btn {
+  display: flex;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.pause-btn {
+  background-color: transparent;
+  padding: 5px 12px;
+  border-radius: 100%;
+  color: white;
+  border: 2px solid white;
+  margin-right: 10px;
+}
+
+.next-btn {
+  background-color: transparent;
+  padding: 5px 12px;
+  border-radius: 100%;
+  color: white;
+  border: 2px solid white;
+}
+.imgPer {
+  width: 180px;
+  height: 5px;
+  background-color: white;
+}
+
+.progress {
+  height: 5px;
+}
+.scrolldown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 37vh;
+  color: white;
+  font-weight: bold;
+  animation: moveUpDown 1.5s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.main-contents {
+  margin-top: 100px;
+}
+
+.main-contents span {
+  font-size: 1.2em;
+  color: white;
+  line-height: 3;
+  font-family: "Gothic A1", sans-serif;
+}
+
+.main-text {
+  font-size: 4.2em;
+  font-family: "Comfortaa", cursive;
+  color: white;
+}
+
+.main-text strong strong {
+  font-family: "Caveat", cursive;
+  font-size: 1.3em;
+}
+
+.main-text strong div {
+  font-size: 0.6em;
+}
+
+.main-detail-text {
+  margin-bottom: 300px;
+}
+
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* main-second-page======================================== */
+.main-second-page{
+  color: white;
+  position: relative;
+}
+
+.main-second-page h1{
+  font-size: 8em;
+  font-weight: bold;
+  margin: 70px 0 0 130px;
+}
+
+.second-page-category{
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  height: 70vh;
+}
+.second-page-contents{
+  height: 100%;
+  border-left: 2px solid lightgray;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+}
+
+.second-page-category svg{
+  font-size: 1.4em;
+}
+
+.second-page-category p{
+  width: 280px;
+  letter-spacing: 0.1em;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 500;
+}
+
+.second-page-title{
+  font-size: 1.5em;
+  font-family: "Comfortaa", cursive;
+  margin: 10px 0 3px 0;
+}
+
+.goToPage-btn{
+  background-color: transparent;
+  border: 1.5px solid white;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.goToPage-btn:hover{
+  background-color: rgba(231, 229, 229, 0.308);
+  transition: 0.5s;
+}
+
+/* home-color-match========================================= */
+.main-third-page{
+  
+}
+
+.cotton{
+  position: absolute;
+  top: 180px;
+  left: 300px;
+}
+
+.painting{
+  position: absolute;
+  bottom: 180px;
+  right: 350px;
+}
+
+/* footer-------------------------------------------------------- */
+.footer {
+  background-color: #343541;
+  width: 100%;
+  height: 45%;
+  position: relative;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-menu li {
+  list-style: none;
+  font-size: 17px;
+  margin-top: 50px;
+  color: lightgray;
+}
+
+.footer-content {
+  padding: 50px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: lightgray;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-text h1 {
+  font-family: "Caveat", cursive;
+}
+
+.footer-text p {
+  margin: 3px;
+}
+
+.footer-icons {
+  margin: 15px 0;
+}
+
+.footer-icons span {
+  font-size: 1.5em;
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.footer-div {
+  display: flex;
+}
+
+.footer-btns {
+  margin: 0 30px 30px 0;
+  border-radius: 20px;
+  padding: 5px 15px;
+  border: 3px solid rgb(99, 97, 97);
+}
+
+.footer-btns:hover {
+  transition: 0.5s;
+  background-color: rgba(211, 211, 211, 0.404);
+}
+
+.copyright {
+  font-weight: bold;
+}
