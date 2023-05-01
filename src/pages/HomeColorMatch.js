@@ -1,15 +1,38 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import Rotate from "react-reveal/Rotate";
+import RubberBand from "react-reveal/RubberBand";
 
 const HomeColorMatch = () => {
+  const navigate = useNavigate();
+  const goToColorMatch = () => {
+    navigate("/colormatch");
+  };
   return (
     <div className="main-third-page">
-      <img src="/images/cotton.jpg" className="cotton" />
-      <img width={350} src="/images/painting.jpg" className="painting" />
-      <h1>Color Match</h1>
-      <p>
-        컬러매치 아직도 고민이신가요? 이제 더 이상 고민하지 마세요.
-        스타일리스트가 여러분의 컬러매치를 도와드립니다.
-      </p>
+      <div className="main-third-page-title">Color Match</div>
+
+      <div className="main-third-page-contents">
+        <Rotate bottom left>
+          <RubberBand delay={1000}>
+            <div className="main-third-page-semiTitle">
+              Find color combinations <br />
+              through the palette
+            </div>
+          </RubberBand>
+        </Rotate>
+        <div className="goToPage-colormatch">
+          <button className="colormatch-btn" onClick={goToColorMatch}>
+            바로가기
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              style={{ fontSize: "1em", paddingLeft: "5px" }}
+            />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
