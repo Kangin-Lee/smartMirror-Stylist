@@ -44,28 +44,28 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div>
-            <div className="menu">
-              <Link to="/">HOME</Link>
-              <Link to="/Outfit">오늘의 착장</Link>
-              <Link to="/colormatch">컬러매치</Link>
-              <Link to="/mycloth">옷장에서 추천</Link>
-            </div>
-            <div className="login-weather">
-              <button onClick={gotoLogin} className="login">
-                <FontAwesomeIcon icon={faCircleUser} className="login-icon" />
-                <div className="login-text">로그인</div>
-              </button>
+          <div className="menu">
+            <Link to="/" style={{ fontFamily: "Comfortaa, cursive" }}>
+              HOME
+            </Link>
+            <Link to="/Outfit">오늘의 착장</Link>
+            <Link to="/colormatch">컬러매치</Link>
+            <Link to="/mycloth">옷장에서 추천</Link>
+          </div>
+          <div className="login-weather">
+            <button onClick={gotoLogin} className="login">
+              <FontAwesomeIcon icon={faCircleUser} className="login-icon" />
+              <div className="login-text">로그인</div>
+            </button>
 
-              <div className="weather">
-                <img
-                  width={45}
-                  src={weatherIcon}
-                  style={{ marginRight: "3px" }}
-                />
-                <div>
-                  {weather?.name}/{weather?.main.temp.toFixed()}℃
-                </div>
+            <div className="weather">
+              <img
+                width={45}
+                src={weatherIcon}
+                style={{ marginRight: "3px" }}
+              />
+              <div>
+                {weather?.name}/{weather?.main.temp.toFixed()}℃
               </div>
             </div>
           </div>

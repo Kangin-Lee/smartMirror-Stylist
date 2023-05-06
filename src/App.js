@@ -5,6 +5,7 @@ import Outfit from "./pages/Outfit";
 import ColorMatch from "./pages/ColorMatch";
 import MyCloth from "./pages/MyCloth";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/colormatch" element={<ColorMatch />} />
         <Route path="/mycloth" element={<MyCloth />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div>
   );
