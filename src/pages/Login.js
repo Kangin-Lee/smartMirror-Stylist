@@ -32,9 +32,10 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-const Login = () => {
+const Login = ({ setAuthenticate }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
+    setAuthenticate(true);
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get("email"),
@@ -107,7 +108,7 @@ const Login = () => {
                   required
                   fullWidth
                   id="email"
-                  label="Your ID"
+                  label="아이디"
                   name="email"
                   autoComplete="email"
                   autoFocus
@@ -117,14 +118,14 @@ const Login = () => {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="비밀번호"
                   type="password"
                   id="password"
                   autoComplete="current-password"
                 />
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
+                  label="로그인 상태 유지"
                 />
                 <Button
                   type="submit"
@@ -136,7 +137,7 @@ const Login = () => {
                 </Button>
                 <Grid container>
                   <Grid item xs>
-                    <Link to="/" variant="body2">
+                    <Link to="/findinfo" variant="body2">
                       <div>아이디/비밀번호 찾기</div>
                     </Link>
                   </Grid>

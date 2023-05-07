@@ -84,7 +84,7 @@ const SignUp = () => {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label="성"
                   autoFocus
                 />
               </Grid>
@@ -93,7 +93,7 @@ const SignUp = () => {
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  label="이름"
                   name="lastName"
                   autoComplete="family-name"
                 />
@@ -103,9 +103,19 @@ const SignUp = () => {
                   required
                   fullWidth
                   id="email"
-                  label="Your ID"
+                  label="이메일"
                   name="email"
                   autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="id"
+                  label="아이디"
+                  name="id"
+                  autoComplete="id"
                 />
               </Grid>
               <Grid container justifyContent="flex-end">
@@ -125,7 +135,7 @@ const SignUp = () => {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="비밀번호"
                   type="password"
                   id="password"
                   autoComplete="new-password"
@@ -136,7 +146,7 @@ const SignUp = () => {
                   required
                   fullWidth
                   name="password"
-                  label="Reconfirm Password"
+                  label="비밀번호 재확인"
                   type="password"
                   id="password"
                   autoComplete="new-password"
@@ -157,13 +167,12 @@ const SignUp = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              회원가입
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2" justifyContent="flex-end">
                   <div>아이디가 이미 존재하시나요?</div>
-                  <div>로그인하러 가기</div>
                 </Link>
               </Grid>
             </Grid>
