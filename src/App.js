@@ -40,7 +40,7 @@ function App() {
 
   useEffect(() => {
     getCurrentLocation();
-    if (airPollution) {
+    if (getCurrentLocation()) {
       getAirPollutionByCurrentLocation();
     }
   }, []);
