@@ -64,9 +64,9 @@ const Navbar = () => {
                 src={weatherIcon}
                 style={{ marginRight: "3px" }}
               />
-              <div>
+              <span>
                 {weather?.name}/{weather?.main.temp.toFixed()}℃
-              </div>
+              </span>
             </div>
           </div>
         </div>
