@@ -10,6 +10,7 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../components/Navbar";
+import Fade from "react-reveal/Fade";
 
 const Outfit = ({ weather, airPollution }) => {
   let weatherIcon = `/images/weatherIcon/${weather?.weather[0].icon}.png`;
@@ -26,6 +27,7 @@ const Outfit = ({ weather, airPollution }) => {
       const TextBackground = { backgroundColor: "#32a1ff" };
       const text = { color: "#32a1ff" };
       const background = { backgroundColor: "#cce7ff" };
+
       return (
         <div className="pm" style={background}>
           <div style={TextBackground} className="pm-common-text">
@@ -236,8 +238,7 @@ const Outfit = ({ weather, airPollution }) => {
       backgroundImage =
         "url(https://cdn.pixabay.com/photo/2016/11/29/05/29/buildings-1867550_960_720.jpg)fixed";
     default:
-      backgroundImage =
-        "url(https://cdn.pixabay.com/photo/2018/08/06/22/55/sun-3588618_960_720.jpg)fixed";
+      backgroundImage = "";
       break;
   }
 
@@ -247,6 +248,67 @@ const Outfit = ({ weather, airPollution }) => {
     backgroundPosition: "center",
   };
 
+  const currentWeather = () => {
+    if (weather?.main.temp.toFixed(0) <= 4) {
+      return (
+        <span>
+          이 날씨에는 패딩같은 두꺼운 외투와 목도리, 히트텍 등으로 보온에 신경
+          써 감기에 걸리지 않게 입어주세요.
+        </span>
+      );
+    } else if (weather?.main.temp.toFixed(0) <= 8) {
+      return (
+        <span>
+          이 날씨에는 아직 춥기때문에 한겨울 정도의 보온까지는 아니지만 어느정도
+          보온에 신경을 써야합니다. 코트나 가죽자켓을 입어보세요.
+        </span>
+      );
+    } else if (weather?.main.temp.toFixed(0) <= 11) {
+      return (
+        <span>
+          현재 날씨는 겉옷 하나만 입기에는 추운 날씨입니다. 얇은 외투를 입어
+          보온에 신경 써 주세요.
+        </span>
+      );
+    } else if (weather?.main.temp.toFixed(0) <= 16) {
+      return (
+        <span>
+          이 날씨에 외투를 입기에는 살짝 더울 수 있습니다. 그렇기 때문에 기모
+          소재나 두꺼운 상의 하나만 입는 것을 추천드립니다.
+        </span>
+      );
+    } else if (weather?.main.temp.toFixed(0) <= 19) {
+      return (
+        <span>
+          이 날씨에는 후드티나 맨투맨 등의 상의 하나만 입거나 얇은 상의 위에
+          바람막이 등을 입어 주시는 것을 추천드립니다.
+        </span>
+      );
+    } else if (weather?.main.temp.toFixed(0) <= 22) {
+      return (
+        <span>
+          이 날씨는 활동하다보면 덥다고 느낄 수 있는 날씨입니다. 그렇기 때문에
+          얇은 상의와 적당한 두께의 하의를 입는 것을 추천드립니다.
+        </span>
+      );
+    } else if (weather?.main.temp.toFixed(0) <= 27) {
+      return (
+        <span>
+          이 날씨에는 높은 기온으로 땀이 많이 날 수 있기 떄문에 통풍이 잘되는
+          상,하의나 반팔 반바지 등으로 체온을 낮추는 것을 추천드립니다.
+        </span>
+      );
+    } else {
+      return (
+        <span>
+          이 날씨는 한 여름의 날씨로써 티셔츠나 반바지를 입는 것을 추천드립니다.
+          만약 사무실 등의 내부에서 많은 활동을 하시는 분이라면 냉방병에 걸릴
+          수도 있기 때문에 가디건을 챙기는 것을 추천드립니다.
+        </span>
+      );
+    }
+  };
+
   return (
     <div className="outfit-area">
       <div className="outfit-header">
@@ -254,7 +316,13 @@ const Outfit = ({ weather, airPollution }) => {
         <h1 className="outfit-title">Today's Outfit</h1>
       </div>
       <div className="current-weather-container" style={containerStyle}>
-        <Container>
+        <Container
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "flex-start",
+          }}
+        >
           <div className="current-weather">
             <div className="weather-img">
               <div className="weather-supply">
@@ -272,7 +340,9 @@ const Outfit = ({ weather, airPollution }) => {
                     <div>
                       <FontAwesomeIcon icon={faLocationDot} />
                     </div>
-                    <div>{weather?.name}</div>
+                    <div style={{ fontFamily: "Comfortaa, cursive" }}>
+                      {weather?.name}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -310,12 +380,37 @@ const Outfit = ({ weather, airPollution }) => {
               </div>
             </div>
           </div>
-
-          <div>현재 날씨는 {weather?.main.temp.toFixed(1)}°입니다.</div>
+          <Fade right duration={2000}>
+            <div className="weather-text">
+              <div
+                style={{
+                  padding: "10px 20px",
+                  borderRadius: "15px",
+                  backgroundColor: "white",
+                  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+                }}
+              >
+                <div>
+                  {date.getFullYear()}년 {date.getMonth() + 1}월{" "}
+                  {date.getDate()}일 {date.getHours()}시 {date.getMinutes()}분
+                </div>{" "}
+                <div>
+                  현재 기온은 {weather?.main.temp.toFixed(1)}
+                  ℃이며 체감 온도는 {weather?.main.feels_like.toFixed()}℃입니다.
+                </div>
+                <div>
+                  {currentWeather()} 미세먼지는 보통이며 초미세먼지는
+                  나쁨입니다. 외출하실 예정이라면 마스크를 착용하시는 것을
+                  추천드립니다. 그리고 현재 햇빛이 강하기 때문에 외출하실 때
+                  선크림을 바르시는 것을 추천드립니다.
+                </div>
+              </div>
+            </div>
+          </Fade>
         </Container>
       </div>
       {/* 옷차림 추천 ======================================================*/}
-      <div style={{ height: "1000px" }}>Outer Top Bottom 슈즈 순</div>
+      <div style={{ height: "1000px" }}>Outer Top Bottom 순</div>
     </div>
   );
 };

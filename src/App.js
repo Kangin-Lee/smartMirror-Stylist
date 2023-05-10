@@ -32,7 +32,7 @@ function App() {
   };
 
   const getAirPollutionByCurrentLocation = async (lat, lon) => {
-    let url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&lang=kr&appid=07c8f80150954d942a79882827366bc7&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&lang=kr&appid=07c8f80150954d942a79882827366bc7&units=metric`;
     let response = await fetch(url);
     let data = await response.json();
     setAirPollution(data);
