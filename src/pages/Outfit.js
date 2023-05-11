@@ -11,6 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../components/Navbar";
 import Fade from "react-reveal/Fade";
+import Footer from "../components/Footer";
+import RecommendedClothes from "../components/RecommendedClothes";
 
 const Outfit = ({ weather, airPollution }) => {
   let weatherIcon = `/images/weatherIcon/${weather?.weather[0].icon}.png`;
@@ -294,7 +296,7 @@ const Outfit = ({ weather, airPollution }) => {
     } else if (weather?.main.temp.toFixed(0) <= 27) {
       return (
         <span>
-          이 날씨에는 높은 기온으로 땀이 많이 날 수 있기 떄문에 통풍이 잘되는
+          이 날씨에는 높은 기온으로 땀이 많이 날 수 있기 때문에 통풍이 잘되는
           상,하의나 반팔 반바지 등으로 체온을 낮추는 것을 추천드립니다.
         </span>
       );
@@ -323,63 +325,65 @@ const Outfit = ({ weather, airPollution }) => {
             alignItems: "flex-start",
           }}
         >
-          <div className="current-weather">
-            <div className="weather-img">
-              <div className="weather-supply">
-                <img
-                  width={100}
-                  src="https://brands.home-assistant.io/_/openweathermap/logo.png"
-                />{" "}
-                <p>제공</p>
-              </div>
-              <div>
-                <img width={140} src={weatherIcon} />
-                <div className="weather-location">
-                  <strong>{weather?.main.temp.toFixed(1)}°</strong>
-                  <div className="current-location">
-                    <div>
-                      <FontAwesomeIcon icon={faLocationDot} />
-                    </div>
-                    <div style={{ fontFamily: "Comfortaa, cursive" }}>
-                      {weather?.name}
-                    </div>
-                  </div>
+          <Fade left>
+            <div className="current-weather">
+              <div className="weather-img">
+                <div className="weather-supply">
+                  <img
+                    width={100}
+                    src="https://brands.home-assistant.io/_/openweathermap/logo.png"
+                  />{" "}
+                  <p>제공</p>
                 </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="current-temp">
                 <div>
-                  {weather?.weather[0].description} / 체감온도:{" "}
-                  {weather?.main.feels_like.toFixed()}℃
-                  <div className="feels-like">
-                    <p>습도: {weather?.main.humidity}%</p>◾
-                    <p>풍속: {weather?.wind.speed}m/s</p>
+                  <img width={140} src={weatherIcon} />
+                  <div className="weather-location">
+                    <strong>{weather?.main.temp.toFixed(1)}°</strong>
+                    <div className="current-location">
+                      <div>
+                        <FontAwesomeIcon icon={faLocationDot} />
+                      </div>
+                      <div style={{ fontFamily: "Comfortaa, cursive" }}>
+                        {weather?.name}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <div className="air-pollution">
-                  {pm10()}
-                  {pm2_5()}
+                <div className="current-temp">
+                  <div>
+                    {weather?.weather[0].description} / 체감온도:{" "}
+                    {weather?.main.feels_like.toFixed()}℃
+                    <div className="feels-like">
+                      <p>습도: {weather?.main.humidity}%</p>◾
+                      <p>풍속: {weather?.wind.speed}m/s</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="air-pollution">
+                    {pm10()}
+                    {pm2_5()}
+                  </div>
+                </div>
+
+                <div className="clock">
+                  <span>
+                    {date.getMonth() + 1}월 {date.getDate()}일 {date.getHours()}
+                    시 {date.getMinutes()}분
+                  </span>
+                  <span>
+                    <button onClick={timeReturn}>
+                      <FontAwesomeIcon icon={faRotateLeft} />
+                    </button>
+                  </span>
                 </div>
               </div>
-
-              <div className="clock">
-                <span>
-                  {date.getMonth() + 1}월 {date.getDate()}일 {date.getHours()}시{" "}
-                  {date.getMinutes()}분
-                </span>
-                <span>
-                  <button onClick={timeReturn}>
-                    <FontAwesomeIcon icon={faRotateLeft} />
-                  </button>
-                </span>
-              </div>
             </div>
-          </div>
+          </Fade>
           <Fade right duration={2000}>
             <div className="weather-text">
               <div
@@ -410,7 +414,10 @@ const Outfit = ({ weather, airPollution }) => {
         </Container>
       </div>
       {/* 옷차림 추천 ======================================================*/}
-      <div style={{ height: "1000px" }}>Outer Top Bottom 순</div>
+      <Container>
+        <RecommendedClothes weather={weather} />
+      </Container>
+      <Footer />
     </div>
   );
 };

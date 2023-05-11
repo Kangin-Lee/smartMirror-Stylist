@@ -693,7 +693,6 @@ body {
 /* outfit================================================================ */
 .outfit-area {
   background-color: rgba(240, 238, 238, 0.507);
-  padding-bottom: 30px;
 }
 
 .outfit-header {
@@ -869,7 +868,11 @@ body {
   line-height: 35px;
   width: 800px;
 }
-
+/* RecommendedClothes=================================================== */
+.recommended-clothes-area h1{
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+}
 /* login================================================= */
 .login-page-text {
   display: flex;
