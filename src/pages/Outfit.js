@@ -24,6 +24,49 @@ const Outfit = ({ weather, airPollution }) => {
     setTime(date);
   };
 
+  // 미세먼지 & 초미세먼지 자동 상태 판단하는 기능=======================================
+  const airStatus = ["좋음", "보통", "나쁨", "매우 나쁨"];
+  const pm_10 = airPollution && airPollution.list[0].components.pm10.toFixed();
+  const pm_2_5 =
+    airPollution && airPollution.list[0].components.pm2_5.toFixed();
+
+  const mask = () => {
+    if (pm_10 > 80 || pm_2_5 > 35) {
+      return (
+        <span>외출하실 예정이라면 마스크를 착용하시는 것을 추천드립니다.</span>
+      );
+    } else {
+      return <span></span>;
+    }
+  };
+
+  const getAirStatus_pm10 = (pm10) => {
+    if (pm10 < 30) {
+      return airStatus[0]; // 좋음
+    } else if (pm10 < 80) {
+      return airStatus[1]; // 보통
+    } else if (pm10 < 150) {
+      return airStatus[2]; // 나쁨
+    } else {
+      return airStatus[3]; // 매우 나쁨
+    }
+  };
+
+  const getAirStatus_pm2_5 = (pm_2_5) => {
+    if (pm_2_5 < 15) {
+      return airStatus[0]; // 좋음
+    } else if (pm_2_5 < 35) {
+      return airStatus[1]; // 보통
+    } else if (pm_2_5 < 75) {
+      return airStatus[2]; // 나쁨
+    } else {
+      return airStatus[3]; // 매우 나쁨
+    }
+  };
+  const status10 = getAirStatus_pm10(pm_10);
+  const status2_5 = getAirStatus_pm2_5(pm_2_5);
+  // ===================================================================================
+
   const pm10 = () => {
     if (airPollution && airPollution.list[0].components.pm10.toFixed() < 30) {
       const TextBackground = { backgroundColor: "#32a1ff" };
@@ -38,7 +81,7 @@ const Outfit = ({ weather, airPollution }) => {
           <div style={text}>
             <div className="text">
               <FontAwesomeIcon icon={faFaceSmile} />
-              <strong className="air-status">좋음</strong>
+              <strong className="air-status">{airStatus[0]}</strong>
             </div>
             <strong>
               {airPollution && airPollution.list[0].components.pm10.toFixed()}
@@ -62,7 +105,7 @@ const Outfit = ({ weather, airPollution }) => {
           <div style={text}>
             <div className="text">
               <FontAwesomeIcon icon={faFaceMeh} />
-              <strong className="air-status">보통</strong>
+              <strong className="air-status">{airStatus[1]}</strong>
             </div>
             <strong>
               {airPollution && airPollution.list[0].components.pm10.toFixed()}
@@ -86,7 +129,7 @@ const Outfit = ({ weather, airPollution }) => {
           <div style={text}>
             <div className="text">
               <FontAwesomeIcon icon={faFaceFrown} />
-              <strong className="air-status">나쁨</strong>
+              <strong className="air-status">{airStatus[2]}</strong>
             </div>
             <strong>
               {airPollution && airPollution.list[0].components.pm10.toFixed()}
@@ -107,7 +150,7 @@ const Outfit = ({ weather, airPollution }) => {
           <div style={text}>
             <div className="text">
               <FontAwesomeIcon icon={faFaceAngry} />
-              <strong className="air-status">매우나쁨</strong>
+              <strong className="air-status">{airStatus[3]}</strong>
             </div>
             <strong>
               {airPollution && airPollution.list[0].components.pm10.toFixed()}
@@ -132,7 +175,7 @@ const Outfit = ({ weather, airPollution }) => {
           <div style={text}>
             <div className="text">
               <FontAwesomeIcon icon={faFaceSmile} />
-              <strong className="air-status">좋음</strong>
+              <strong className="air-status">{airStatus[0]}</strong>
             </div>
             <strong>
               {airPollution && airPollution.list[0].components.pm2_5.toFixed()}
@@ -156,7 +199,7 @@ const Outfit = ({ weather, airPollution }) => {
           <div style={text}>
             <div className="text">
               <FontAwesomeIcon icon={faFaceMeh} />
-              <strong className="air-status">보통</strong>
+              <strong className="air-status">{airStatus[1]}</strong>
             </div>
             <strong>
               {airPollution && airPollution.list[0].components.pm2_5.toFixed()}
@@ -180,7 +223,7 @@ const Outfit = ({ weather, airPollution }) => {
           <div style={text}>
             <div className="text">
               <FontAwesomeIcon icon={faFaceFrown} />
-              <strong className="air-status">나쁨</strong>
+              <strong className="air-status">{airStatus[2]}</strong>
             </div>
             <strong>
               {airPollution && airPollution.list[0].components.pm2_5.toFixed()}
@@ -201,7 +244,7 @@ const Outfit = ({ weather, airPollution }) => {
           <div style={text}>
             <div className="text">
               <FontAwesomeIcon icon={faFaceAngry} />
-              <strong className="air-status">매우나쁨</strong>
+              <strong className="air-status">{airStatus[3]}</strong>
             </div>
             <strong>
               {airPollution && airPollution.list[0].components.pm2_5.toFixed()}
@@ -403,10 +446,9 @@ const Outfit = ({ weather, airPollution }) => {
                   ℃이며 체감 온도는 {weather?.main.feels_like.toFixed()}℃입니다.
                 </div>
                 <div>
-                  {currentWeather()} 미세먼지는 보통이며 초미세먼지는
-                  나쁨입니다. 외출하실 예정이라면 마스크를 착용하시는 것을
-                  추천드립니다. 그리고 현재 햇빛이 강하기 때문에 외출하실 때
-                  선크림을 바르시는 것을 추천드립니다.
+                  {currentWeather()} 미세먼지는 '{status10}'이며 초미세먼지는 '
+                  {status2_5}'입니다. {mask()} 그리고 현재 비가 오고 있기 때문에
+                  우산을 챙기는 것을 추천드립니다.
                 </div>
               </div>
             </div>

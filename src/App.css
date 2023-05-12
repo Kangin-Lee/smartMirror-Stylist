@@ -801,6 +801,7 @@ body {
 .air-pollution {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .pm {
   width: 168px;
@@ -872,6 +873,30 @@ body {
 .recommended-clothes-area h1{
   font-family: "Comfortaa", cursive;
   font-weight: bold;
+}
+
+.category-area{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 30px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.category-area img{
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 10px;
+}
+
+.category{
+  margin-right: 30px;
+  border-radius: 15px;
+  padding: 10px 20px;
+  background-color: #f1f5fe;
+  
 }
 /* login================================================= */
 .login-page-text {
