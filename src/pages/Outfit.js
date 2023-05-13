@@ -257,31 +257,56 @@ const Outfit = ({ weather, airPollution }) => {
   };
 
   let backgroundImage;
+  let weatherStatus;
 
+  // 기상 상황에 따른 별도 코멘트 설정============================================
   switch (weather?.weather[0].main) {
     case "Clouds":
-      backgroundImage =
-        "url(https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?cs=srgb&dl=pexels-pixabay-209831.jpg&fm=jpg) fixed";
+      weatherStatus = "";
       break;
     case "Clear":
-      backgroundImage =
-        "url(https://cdn.pixabay.com/photo/2018/08/06/22/55/sun-3588618_960_720.jpg)fixed";
+      weatherStatus =
+        "그리고 현재 햇빛이 강하기 때문에 외출 시 선크림을 바르시는 것을 추천드립니다. ";
       break;
     case "Snow":
-      backgroundImage =
-        "url(https://cdn.pixabay.com/photo/2014/02/07/10/19/winter-260817_960_720.jpg)fixed";
+      weatherStatus =
+        "그리고 현재 눈이 내리고 있기 떄문에 외출 시 우산을 챙기는 것을 추천드리며, 미끄럽지 않은 신발을 신는 것을 추천드립니다.";
       break;
     case "Rain":
-      backgroundImage =
-        "url(https://cdn.pixabay.com/photo/2016/11/29/05/29/buildings-1867550_960_720.jpg)fixed";
+      weatherStatus =
+        "그리고 현재 비가 오고 있기 때문에 외출 시 우산을 챙기는 것을 추천드립니다.";
       break;
     case "Drizzle":
-      backgroundImage =
-        "url(https://cdn.pixabay.com/photo/2016/11/29/05/29/buildings-1867550_960_720.jpg)fixed";
+      weatherStatus =
+        "그리고 현재 비가 오고 있기 때문에 외출 시 우산을 챙기는 것을 추천드립니다.";
       break;
     case "Thunderstorm":
-      backgroundImage =
-        "url(https://cdn.pixabay.com/photo/2016/11/29/05/29/buildings-1867550_960_720.jpg)fixed";
+      weatherStatus =
+        "그리고 현재 천둥번개를 동반한 비가 내리고 있기 때문에 외출 시 우산을 챙기는 것을 추천드립니다.";
+    default:
+      weatherStatus = "";
+      break;
+  }
+
+  // 기상 상황에 따른 백그라운드 이미지 설정 =======================================
+  switch (weather?.weather[0].main) {
+    case "Clouds":
+      backgroundImage = "url(/images/weather/clouds.jpg) fixed";
+      break;
+    case "Clear":
+      backgroundImage = "url(/images/weather/sun.jpg)fixed";
+      break;
+    case "Snow":
+      backgroundImage = "url(/images/weather/snow.jpg)fixed";
+      break;
+    case "Rain":
+      backgroundImage = "url(/images/weather/rain.jpg)fixed";
+      break;
+    case "Drizzle":
+      backgroundImage = "url(/images/weather/rain.jpg)fixed";
+      break;
+    case "Thunderstorm":
+      backgroundImage = "url(/images/weather/thunderstorm.jpg)fixed";
     default:
       backgroundImage = "";
       break;
@@ -447,8 +472,7 @@ const Outfit = ({ weather, airPollution }) => {
                 </div>
                 <div>
                   {currentWeather()} 미세먼지는 '{status10}'이며 초미세먼지는 '
-                  {status2_5}'입니다. {mask()} 그리고 현재 비가 오고 있기 때문에
-                  우산을 챙기는 것을 추천드립니다.
+                  {status2_5}'입니다. {mask()} {weatherStatus}
                 </div>
               </div>
             </div>

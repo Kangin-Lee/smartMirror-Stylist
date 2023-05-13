@@ -1,5 +1,9 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import Flip from "react-reveal/Flip";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const RecommendedClothes = ({ weather }) => {
   const clothingData = {
@@ -10,7 +14,7 @@ const RecommendedClothes = ({ weather }) => {
       },
       {
         name: "얇은 셔츠",
-        url: "https://image.msscdn.net/images/goods_img/20220113/2305844/2305844_3_500.jpg",
+        url: "https://image.msscdn.net/images/goods_img/20190326/994588/994588_16764335228041_500.jpg",
       },
       {
         name: "가디건",
@@ -100,9 +104,7 @@ const RecommendedClothes = ({ weather }) => {
     weather?.main.temp.toFixed(0) <= 22
   ) {
     filteredClothing = {
-      OUTER: clothingData.OUTER.filter((image) =>
-        image.name.includes("얇은 가디건")
-      ),
+      OUTER: null,
       TOP: clothingData.TOP.filter(
         (image) =>
           image.name.includes("후드티") ||
@@ -124,7 +126,7 @@ const RecommendedClothes = ({ weather }) => {
     filteredClothing = {
       OUTER: clothingData.OUTER.filter(
         (image) =>
-          image.name.includes("반팔셔츠") || image.name.includes("얇은 셔츠")
+          image.name.includes("반팔 셔츠") || image.name.includes("얇은 셔츠")
       ),
       TOP: clothingData.TOP.filter((image) => image.name.includes("반팔")),
       BOTTOM: clothingData.BOTTOM.filter(
@@ -181,29 +183,39 @@ const RecommendedClothes = ({ weather }) => {
   }
   return (
     <div className="recommended-clothes-area">
-      <span>오늘의 착장</span>
-      <div>
-        오늘의 착장은 현재 기온, 미세먼지, 강수량 등의 조건 등을 AI가 판단하여
-        가장 알맞는 옷차림을 추천해 주는 기능입니다.
+      <div className="recommended-clothes-text-area">
+        <span>Today's Outfit</span>
+        <Flip top>
+          <div className="recommended-clothes-text">
+            오늘 무슨 옷을 입어야 할지 고민이신가요? Today's Outfit(오늘의
+            착장)은 현재 기온, 미세먼지, 강수량 등의 조건 등을 AI가 판단하여
+            가장 알맞는 옷차림을 추천해 주는 기능입니다.
+          </div>
+        </Flip>
       </div>
+
       <div>
         <h1>OUTER</h1>
         <div className="category-area">
-          {filteredClothing.OUTER.map((image, index) => (
-            <Fade right delay={index === 0 ? 0 : index * 300} key={index}>
-              <div className="category">
-                <img width={200} key={index} src={image.url} alt="Clothing" />
-                <div>{image.name}</div>
-              </div>
-            </Fade>
-          ))}
+          {filteredClothing.OUTER ? (
+            filteredClothing.OUTER.map((image, index) => (
+              <Fade right delay={index === 0 ? 0 : index * 200} key={index}>
+                <div className="category">
+                  <img width={200} key={index} src={image.url} alt="Clothing" />
+                  <div>{image.name}</div>
+                </div>
+              </Fade>
+            ))
+          ) : (
+            <div>해당 없음</div>
+          )}
         </div>
       </div>
       <div>
         <h1>TOP</h1>
         <div className="category-area">
           {filteredClothing.TOP.map((image, index) => (
-            <Fade right delay={index === 0 ? 0 : index * 300} key={index}>
+            <Fade right delay={index === 0 ? 0 : index * 200} key={index}>
               <div className="category">
                 <img width={200} key={index} src={image.url} alt="Clothing" />
                 <div>{image.name}</div>
@@ -216,7 +228,7 @@ const RecommendedClothes = ({ weather }) => {
         <h1>BOTTOM</h1>
         <div className="category-area">
           {filteredClothing.BOTTOM.map((image, index) => (
-            <Fade right delay={index === 0 ? 0 : index * 300} key={index}>
+            <Fade right delay={index === 0 ? 0 : index * 200} key={index}>
               <div className="category">
                 <img width={200} key={index} src={image.url} alt="Clothing" />
                 <div>{image.name}</div>
@@ -229,13 +241,26 @@ const RecommendedClothes = ({ weather }) => {
         <h1>ACCESSORIES</h1>
         <div className="category-area">
           {filteredClothing.ACCESSORIES.map((image, index) => (
-            <Fade right delay={index === 0 ? 0 : index * 300} key={index}>
+            <Fade right delay={index === 0 ? 0 : index * 200} key={index}>
               <div className="category">
                 <img width={200} key={index} src={image.url} alt="Clothing" />
                 <div>{image.name}</div>
               </div>
             </Fade>
           ))}
+        </div>
+      </div>
+
+      <div className="goTo-mycloth">
+        <div>
+          <FontAwesomeIcon
+            icon={faTriangleExclamation}
+            style={{ marginRight: "5px", color: "#f6c142" }}
+          />
+          추천해드린 옷이 현재 본인의 옷장에 없으신가요?
+        </div>
+        <div>
+          <Link to="/mycloth">'옷장에서 추천'으로 바로가기</Link>
         </div>
       </div>
     </div>
