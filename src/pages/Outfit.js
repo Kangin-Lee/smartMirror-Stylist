@@ -31,7 +31,7 @@ const Outfit = ({ weather, airPollution }) => {
     airPollution && airPollution.list[0].components.pm2_5.toFixed();
 
   const mask = () => {
-    if (pm_10 > 80 || pm_2_5 > 35) {
+    if (pm_10 >= 80 || pm_2_5 >= 35) {
       return (
         <span>외출하실 예정이라면 마스크를 착용하시는 것을 추천드립니다.</span>
       );
@@ -266,7 +266,9 @@ const Outfit = ({ weather, airPollution }) => {
       break;
     case "Clear":
       weatherStatus =
-        "그리고 현재 햇빛이 강하기 때문에 외출 시 선크림을 바르시는 것을 추천드립니다. ";
+        date.getHours() >= 18 || date.getHours() < 6
+          ? ""
+          : "그리고 현재 햇빛이 강하기 때문에 외출 시 선크림을 바르시는 것을 추천드립니다. ";
       break;
     case "Snow":
       weatherStatus =
@@ -294,7 +296,10 @@ const Outfit = ({ weather, airPollution }) => {
       backgroundImage = "url(/images/weather/clouds.jpg) fixed";
       break;
     case "Clear":
-      backgroundImage = "url(/images/weather/sun.jpg)fixed";
+      backgroundImage =
+        date.getHours() >= 18 || date.getHours() < 6
+          ? "url(/images/weather/ClearNight.jpg)fixed"
+          : "url(/images/weather/sun.jpg)fixed";
       break;
     case "Snow":
       backgroundImage = "url(/images/weather/snow.jpg)fixed";
@@ -336,22 +341,23 @@ const Outfit = ({ weather, airPollution }) => {
     } else if (weather?.main.temp.toFixed(0) <= 11) {
       return (
         <span>
-          현재 날씨는 겉옷 하나만 입기에는 추운 날씨입니다. 얇은 외투를 입어
-          보온에 신경 써 주세요.
+          현재 날씨는 겉옷 하나만 입기에는 추운 날씨입니다. 상의 위에 얇은
+          외투를 입어 보온에 신경 써 주세요.
         </span>
       );
     } else if (weather?.main.temp.toFixed(0) <= 16) {
       return (
         <span>
-          이 날씨에 외투를 입기에는 살짝 더울 수 있습니다. 그렇기 때문에 기모
-          소재나 두꺼운 상의 하나만 입는 것을 추천드립니다.
+          이 날씨에 두꺼운 상의와 외투를 함께 입기에는 살짝 더울 수 있습니다.
+          그렇기 때문에 기모 소재나 두꺼운 상의 하나만 입거나 얇은 상의 위에
+          외투를 입는 것을 추천드립니다.
         </span>
       );
     } else if (weather?.main.temp.toFixed(0) <= 19) {
       return (
         <span>
           이 날씨에는 후드티나 맨투맨 등의 상의 하나만 입거나 얇은 상의 위에
-          바람막이 등을 입어 주시는 것을 추천드립니다.
+          바람막이나 후드집업 등의 가벼운 외투를 입어 주시는 것을 추천드립니다.
         </span>
       );
     } else if (weather?.main.temp.toFixed(0) <= 22) {
@@ -373,7 +379,7 @@ const Outfit = ({ weather, airPollution }) => {
         <span>
           이 날씨는 한 여름의 날씨로써 티셔츠나 반바지를 입는 것을 추천드립니다.
           만약 사무실 등의 내부에서 많은 활동을 하시는 분이라면 냉방병에 걸릴
-          수도 있기 때문에 가디건을 챙기는 것을 추천드립니다.
+          수도 있기 때문에 얇은 가디건을 챙기는 것을 추천드립니다.
         </span>
       );
     }

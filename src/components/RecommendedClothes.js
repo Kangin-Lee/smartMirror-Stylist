@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Fade from "react-reveal/Fade";
 import Flip from "react-reveal/Flip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,12 +9,76 @@ const RecommendedClothes = ({ weather }) => {
   const clothingData = {
     OUTER: [
       {
-        name: "얇은 가디건",
-        url: "https://image.msscdn.net/images/goods_img/20190902/1139338/1139338_7_500.jpg",
+        name: "MA-1",
+        url: "https://image.msscdn.net/images/goods_img/20200205/1291016/1291016_1_500.jpg",
       },
       {
-        name: "얇은 셔츠",
-        url: "https://image.msscdn.net/images/goods_img/20190326/994588/994588_16764335228041_500.jpg",
+        name: "야상",
+        url: "https://image.msscdn.net/images/goods_img/20220908/2783080/2783080_1_500.jpg",
+      },
+      {
+        name: "블루종",
+        url: "https://image.msscdn.net/images/goods_img/20220307/2403203/2403203_3_500.jpg",
+      },
+      {
+        name: "트렌치 코트",
+        url: "https://image.msscdn.net/images/goods_img/20230202/3055654/3055654_16753160225339_500.jpg",
+      },
+      {
+        name: "바시티 자켓",
+        url: "https://image.msscdn.net/images/goods_img/20220818/2724701/2724701_3_500.jpg",
+      },
+      {
+        name: "플리스 자켓",
+        url: "https://image.msscdn.net/images/goods_img/20220831/2757393/2757393_1_500.jpg",
+      },
+      {
+        name: "가죽 자켓",
+        url: "https://image.msscdn.net/images/goods_img/20200909/1593755/1593755_1_500.jpg",
+      },
+      {
+        name: "데님 자켓",
+        url: "https://image.msscdn.net/images/goods_img/20230126/3042259/3042259_16759996227713_500.jpg",
+      },
+      {
+        name: "롱패딩",
+        url: "https://image.msscdn.net/images/goods_img/20200922/1616798/1616798_4_500.jpg",
+      },
+      {
+        name: "숏패딩",
+        url: "https://image.msscdn.net/images/goods_img/20220927/2822315/2822315_2_500.jpg",
+      },
+      {
+        name: "더플 코트",
+        url: "https://image.msscdn.net/images/goods_img/20211117/2238440/2238440_1_500.jpg",
+      },
+      {
+        name: "싱글 코트",
+        url: "https://image.msscdn.net/images/goods_img/20221007/2848683/2848683_1_500.jpg",
+      },
+      {
+        name: "발마칸 코트",
+        url: "https://image.msscdn.net/images/goods_img/20220908/2782764/2782764_1_500.jpg",
+      },
+      {
+        name: "더블 코트",
+        url: "https://image.msscdn.net/images/goods_img/20220908/2782723/2782723_1_500.jpg",
+      },
+      {
+        name: "숏 코트",
+        url: "https://image.msscdn.net/images/goods_img/20220914/2790412/2790412_1_500.jpg",
+      },
+      {
+        name: "퀼팅 자켓",
+        url: "https://image.msscdn.net/images/goods_img/20220822/2731644/2731644_3_500.jpg",
+      },
+      {
+        name: "니트조끼",
+        url: "https://image.msscdn.net/images/goods_img/20230327/3180907/3180907_16798874329547_500.jpg",
+      },
+      {
+        name: "얇은 가디건",
+        url: "https://image.msscdn.net/images/goods_img/20190902/1139338/1139338_7_500.jpg",
       },
       {
         name: "가디건",
@@ -29,11 +93,39 @@ const RecommendedClothes = ({ weather }) => {
         url: "https://image.msscdn.net/images/goods_img/20210105/1737051/1737051_9_500.jpg",
       },
       {
-        name: "반팔 셔츠",
-        url: "https://image.msscdn.net/images/goods_img/20210514/1951474/1951474_2_500.jpg",
+        name: "무스탕",
+        url: "https://image.msscdn.net/images/goods_img/20181101/895995/895995_4_500.jpg",
+      },
+      {
+        name: "블레이저",
+        url: "https://image.msscdn.net/images/goods_img/20230214/3082210/3082210_16766029210433_500.jpg",
       },
     ],
     TOP: [
+      {
+        name: "크롭티",
+        url: "https://image.msscdn.net/images/goods_img/20220523/2574959/2574959_2_500.jpg",
+      },
+      {
+        name: "원피스",
+        url: "https://image.msscdn.net/images/goods_img/20230215/3085822/3085822_16796325336229_500.jpg",
+      },
+      {
+        name: "니트 반팔",
+        url: "https://image.msscdn.net/images/prd_img/20210510/1943088/detail_1943088_5_500.jpg",
+      },
+      {
+        name: "민소매",
+        url: "https://image.msscdn.net/images/goods_img/20230314/3147631/3147631_16794712396034_500.jpg",
+      },
+      {
+        name: "반팔 셔츠",
+        url: "https://image.msscdn.net/images/goods_img/20210514/1951474/1951474_2_500.jpg",
+      },
+      {
+        name: "얇은 셔츠",
+        url: "https://image.msscdn.net/images/goods_img/20190326/994588/994588_16764335228041_500.jpg",
+      },
       {
         name: "맨투맨",
         url: "https://image.msscdn.net/images/goods_img/20221117/2948499/2948499_11_500.jpg",
@@ -54,10 +146,18 @@ const RecommendedClothes = ({ weather }) => {
         name: "얇은 니트",
         url: "https://image.msscdn.net/images/goods_img/20230201/3051494/3051494_16759214747692_500.jpg",
       },
+      {
+        name: "니트",
+        url: "https://image.msscdn.net/images/goods_img/20210830/2098128/2098128_1_500.jpg",
+      },
     ],
     BOTTOM: [
       {
-        name: "데님팬츠",
+        name: "스웻 팬츠",
+        url: "https://image.msscdn.net/images/goods_img/20220218/2370565/2370565_1_500.jpg",
+      },
+      {
+        name: "데님 팬츠",
         url: "https://image.msscdn.net/images/goods_img/20230126/3039551/3039551_16753117564421_500.jpg",
       },
       {
@@ -71,6 +171,10 @@ const RecommendedClothes = ({ weather }) => {
       {
         name: "반바지",
         url: "https://image.msscdn.net/images/goods_img/20230419/3245228/3245228_16835272427086_500.jpg",
+      },
+      {
+        name: "슬랙스",
+        url: "https://image.msscdn.net/images/goods_img/20220829/2750605/2750605_1_500.jpg",
       },
     ],
     ACCESSORIES: [
@@ -90,6 +194,26 @@ const RecommendedClothes = ({ weather }) => {
         name: "우산",
         url: "https://image.msscdn.net/images/goods_img/20220623/2631946/2631946_2_500.jpg",
       },
+      {
+        name: "시계",
+        url: "https://image.msscdn.net/images/goods_img/20210610/1990393/1990393_1_500.jpg",
+      },
+      {
+        name: "머플러",
+        url: "https://image.msscdn.net/images/goods_img/20221124/2958994/2958994_1_500.jpg",
+      },
+      {
+        name: "비니",
+        url: "https://image.msscdn.net/images/goods_img/20200724/1526859/1526859_1_500.jpg",
+      },
+      {
+        name: "베레모",
+        url: "https://image.msscdn.net/images/goods_img/20230424/3255283/3255283_16831743856328_500.jpg",
+      },
+      {
+        name: "버킷햇",
+        url: "https://image.msscdn.net/images/goods_img/20170616/578956/578956_3_500.jpg",
+      },
     ],
   };
   let filteredClothing = {
@@ -99,7 +223,67 @@ const RecommendedClothes = ({ weather }) => {
     ACCESSORIES: [],
   };
 
-  if (
+  if (weather?.main.temp.toFixed(0) >= 28) {
+    filteredClothing = {
+      OUTER: null,
+      TOP: clothingData.TOP.filter(
+        (image) =>
+          image.name.includes("민소매") ||
+          image.name.includes("크롭티") ||
+          image.name.includes("반팔")
+      ),
+      BOTTOM: clothingData.BOTTOM.filter(
+        (image) =>
+          image.name.includes("반바지") ||
+          image.name.includes("린넨 팬츠") ||
+          image.name.includes("코튼 팬츠") ||
+          image.name.includes("스웻 팬츠") ||
+          image.name.includes("슬랙스")
+      ),
+      ACCESSORIES: clothingData.ACCESSORIES.filter(
+        (image) =>
+          image.name.includes("볼캡") ||
+          image.name.includes("버킷햇") ||
+          image.name.includes("시계") ||
+          image.name.includes("안경")
+      ),
+    };
+  } else if (
+    weather?.main.temp.toFixed(0) >= 23 &&
+    weather?.main.temp.toFixed(0) <= 27
+  ) {
+    filteredClothing = {
+      OUTER: clothingData.OUTER.filter((image) =>
+        image.name.includes("니트조끼")
+      ),
+      TOP: clothingData.TOP.filter(
+        (image) =>
+          image.name.includes("반팔 셔츠") ||
+          image.name.includes("반팔") ||
+          image.name.includes("니트 반팔") ||
+          image.name.includes("원피스") ||
+          image.name.includes("크롭티") ||
+          image.name.includes("롱슬리브") ||
+          image.name.includes("얇은 셔츠")
+      ),
+      BOTTOM: clothingData.BOTTOM.filter(
+        (image) =>
+          image.name.includes("반바지") ||
+          image.name.includes("린넨 팬츠") ||
+          image.name.includes("코튼 팬츠") ||
+          image.name.includes("데님 팬츠") ||
+          image.name.includes("스웻 팬츠") ||
+          image.name.includes("슬랙스")
+      ),
+      ACCESSORIES: clothingData.ACCESSORIES.filter(
+        (image) =>
+          image.name.includes("볼캡") ||
+          image.name.includes("버킷햇") ||
+          image.name.includes("시계") ||
+          image.name.includes("안경")
+      ),
+    };
+  } else if (
     weather?.main.temp.toFixed(0) >= 20 &&
     weather?.main.temp.toFixed(0) <= 22
   ) {
@@ -109,34 +293,23 @@ const RecommendedClothes = ({ weather }) => {
         (image) =>
           image.name.includes("후드티") ||
           image.name.includes("롱슬리브") ||
-          image.name.includes("맨투맨")
+          image.name.includes("맨투맨") ||
+          image.name.includes("얇은 셔츠")
       ),
       BOTTOM: clothingData.BOTTOM.filter(
         (image) =>
-          image.name.includes("데님팬츠") ||
-          image.name.includes("린넨 팬츠") ||
-          image.name.includes("코튼 팬츠")
+          image.name.includes("데님 팬츠") ||
+          image.name.includes("코튼 팬츠") ||
+          image.name.includes("슬랙스") ||
+          image.name.includes("스웻 팬츠")
       ),
-      ACCESSORIES: clothingData.ACCESSORIES,
-    };
-  } else if (
-    weather?.main.temp.toFixed(0) >= 23 &&
-    weather?.main.temp.toFixed(0) <= 27
-  ) {
-    filteredClothing = {
-      OUTER: clothingData.OUTER.filter(
+      ACCESSORIES: clothingData.ACCESSORIES.filter(
         (image) =>
-          image.name.includes("반팔 셔츠") || image.name.includes("얇은 셔츠")
+          image.name.includes("볼캡") ||
+          image.name.includes("버킷햇") ||
+          image.name.includes("시계") ||
+          image.name.includes("안경")
       ),
-      TOP: clothingData.TOP.filter((image) => image.name.includes("반팔")),
-      BOTTOM: clothingData.BOTTOM.filter(
-        (image) =>
-          image.name.includes("반바지") ||
-          image.name.includes("데님팬츠") ||
-          image.name.includes("린넨 팬츠") ||
-          image.name.includes("코튼 팬츠")
-      ),
-      ACCESSORIES: clothingData.ACCESSORIES,
     };
   } else if (
     weather?.main.temp.toFixed(0) >= 17 &&
@@ -145,8 +318,9 @@ const RecommendedClothes = ({ weather }) => {
     filteredClothing = {
       OUTER: clothingData.OUTER.filter(
         (image) =>
-          image.name.includes("가디건") ||
           image.name.includes("얇은 가디건") ||
+          image.name.includes("데님 자켓") ||
+          image.name.includes("블레이저") ||
           image.name.includes("후드집업") ||
           image.name.includes("바람막이")
       ),
@@ -154,31 +328,171 @@ const RecommendedClothes = ({ weather }) => {
         (image) =>
           image.name.includes("후드티") ||
           image.name.includes("롱슬리브") ||
+          image.name.includes("얇은 니트") ||
           image.name.includes("맨투맨")
       ),
       BOTTOM: clothingData.BOTTOM.filter(
         (image) =>
-          image.name.includes("데님팬츠") ||
-          image.name.includes("린넨 팬츠") ||
+          image.name.includes("데님 팬츠") ||
+          image.name.includes("코튼 팬츠") ||
+          image.name.includes("슬랙스") ||
+          image.name.includes("스웻 팬츠")
+      ),
+      ACCESSORIES: clothingData.ACCESSORIES.filter(
+        (image) =>
+          image.name.includes("볼캡") ||
+          image.name.includes("버킷햇") ||
+          image.name.includes("시계") ||
+          image.name.includes("안경")
+      ),
+    };
+  } else if (
+    weather?.main.temp.toFixed(0) >= 12 &&
+    weather?.main.temp.toFixed(0) <= 16
+  ) {
+    filteredClothing = {
+      OUTER: clothingData.OUTER.filter(
+        (image) =>
+          image.name.includes("얇은 가디건") ||
+          image.name.includes("데님 자켓") ||
+          image.name.includes("블레이저") ||
+          image.name.includes("후드집업") ||
+          image.name.includes("바람막이")
+      ),
+      TOP: clothingData.TOP.filter(
+        (image) =>
+          image.name.includes("후드티") ||
+          image.name.includes("맨투맨") ||
+          image.name.includes("얇은 니트") ||
+          image.name.includes("롱슬리브")
+      ),
+      BOTTOM: clothingData.BOTTOM.filter(
+        (image) =>
+          image.name.includes("데님 팬츠") ||
+          image.name.includes("코튼 팬츠") ||
+          image.name.includes("슬랙스") ||
+          image.name.includes("스웻 팬츠")
+      ),
+      ACCESSORIES: clothingData.ACCESSORIES.filter(
+        (image) =>
+          image.name.includes("볼캡") ||
+          image.name.includes("버킷햇") ||
+          image.name.includes("시계") ||
+          image.name.includes("안경")
+      ),
+    };
+  } else if (
+    weather?.main.temp.toFixed(0) >= 9 &&
+    weather?.main.temp.toFixed(0) <= 11
+  ) {
+    filteredClothing = {
+      OUTER: clothingData.OUTER.filter(
+        (image) =>
+          image.name.includes("가디건") ||
+          image.name.includes("블루종") ||
+          image.name.includes("데님 자켓") ||
+          image.name.includes("블레이저") ||
+          image.name.includes("바시티 자켓") ||
+          image.name.includes("야상") ||
+          image.name.includes("MA-1") ||
+          image.name.includes("트렌치 코트") ||
+          image.name.includes("플리스 자켓") ||
+          image.name.includes("퀼팅 자켓") ||
+          image.name.includes("가죽 자켓")
+      ),
+      TOP: clothingData.TOP.filter(
+        (image) =>
+          image.name.includes("후드티") ||
+          image.name.includes("맨투맨") ||
+          image.name.includes("니트")
+      ),
+      BOTTOM: clothingData.BOTTOM.filter(
+        (image) =>
+          image.name.includes("데님 팬츠") ||
+          image.name.includes("스웻 팬츠") ||
+          image.name.includes("코튼 팬츠") ||
+          image.name.includes("슬랙스")
+      ),
+      ACCESSORIES: clothingData.ACCESSORIES.filter(
+        (image) =>
+          image.name.includes("볼캡") ||
+          image.name.includes("버킷햇") ||
+          image.name.includes("시계") ||
+          image.name.includes("안경")
+      ),
+    };
+  } else if (
+    weather?.main.temp.toFixed(0) >= 5 &&
+    weather?.main.temp.toFixed(0) <= 8
+  ) {
+    filteredClothing = {
+      OUTER: clothingData.OUTER.filter(
+        (image) =>
+          image.name.includes("숏패딩") ||
+          image.name.includes("더플 코트") ||
+          image.name.includes("싱글 코트") ||
+          image.name.includes("발마칸 코트") ||
+          image.name.includes("더블 코트") ||
+          image.name.includes("무스탕") ||
+          image.name.includes("퀼팅 자켓") ||
+          image.name.includes("숏 코트")
+      ),
+      TOP: clothingData.TOP.filter(
+        (image) =>
+          image.name.includes("후드티") ||
+          image.name.includes("맨투맨") ||
+          image.name.includes("니트")
+      ),
+      BOTTOM: clothingData.BOTTOM.filter(
+        (image) =>
+          image.name.includes("데님 팬츠") ||
+          image.name.includes("스웻 팬츠") ||
           image.name.includes("코튼 팬츠")
       ),
-      ACCESSORIES: clothingData.ACCESSORIES,
+      ACCESSORIES: clothingData.ACCESSORIES.filter(
+        (image) =>
+          image.name.includes("볼캡") ||
+          image.name.includes("버킷햇") ||
+          image.name.includes("시계") ||
+          image.name.includes("베레모") ||
+          image.name.includes("비니") ||
+          image.name.includes("안경")
+      ),
     };
   } else {
     filteredClothing = {
       OUTER: clothingData.OUTER.filter(
         (image) =>
-          image.name.includes("반팔셔츠") || image.name.includes("얇은 셔츠")
+          image.name.includes("롱패딩") ||
+          image.name.includes("숏패딩") ||
+          image.name.includes("더플 코트") ||
+          image.name.includes("싱글 코트") ||
+          image.name.includes("발마칸 코트") ||
+          image.name.includes("더블 코트") ||
+          image.name.includes("숏 코트")
       ),
-      TOP: clothingData.TOP.filter((image) => image.name.includes("반팔")),
+      TOP: clothingData.TOP.filter(
+        (image) =>
+          image.name.includes("후드티") ||
+          image.name.includes("맨투맨") ||
+          image.name.includes("니트")
+      ),
       BOTTOM: clothingData.BOTTOM.filter(
         (image) =>
-          image.name.includes("반바지") ||
-          image.name.includes("데님팬츠") ||
-          image.name.includes("린넨 팬츠") ||
+          image.name.includes("데님 팬츠") ||
+          image.name.includes("스웻 팬츠") ||
           image.name.includes("코튼 팬츠")
       ),
-      ACCESSORIES: clothingData.ACCESSORIES,
+      ACCESSORIES: clothingData.ACCESSORIES.filter(
+        (image) =>
+          image.name.includes("볼캡") ||
+          image.name.includes("버킷햇") ||
+          image.name.includes("시계") ||
+          image.name.includes("베레모") ||
+          image.name.includes("머플러") ||
+          image.name.includes("비니") ||
+          image.name.includes("안경")
+      ),
     };
   }
   return (
