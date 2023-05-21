@@ -547,11 +547,14 @@ const RecommendedClothes = ({ weather }) => {
   let recommendedItem = () => {
     if (weather?.main.temp.toFixed(0) >= 28) {
       return (
-        <>
+        <div>
           {recommendedOutfit.over28.map((item, index) => (
-            <img key={index} width={250} src={item.url} />
+            <div className="recommendedOutfit-items">
+              <img key={index} width={250} src={item.url} />
+              <div style={{ margin: "5px" }}>{item.item}</div>
+            </div>
           ))}
-        </>
+        </div>
       );
     } else if (
       weather?.main.temp.toFixed(0) >= 23 &&
@@ -586,52 +589,67 @@ const RecommendedClothes = ({ weather }) => {
       weather?.main.temp.toFixed(0) <= 19
     ) {
       return (
-        <>
+        <div>
           {recommendedOutfit.between1719.map((item, index) => (
-            <img key={index} width={250} src={item.url} />
+            <div className="recommendedOutfit-items">
+              <img key={index} width={250} src={item.url} />
+              <div style={{ margin: "5px" }}>{item.item}</div>
+            </div>
           ))}
-        </>
+        </div>
       );
     } else if (
       weather?.main.temp.toFixed(0) >= 12 &&
       weather?.main.temp.toFixed(0) <= 16
     ) {
       return (
-        <>
+        <div>
           {recommendedOutfit.between1216.map((item, index) => (
-            <img key={index} width={250} src={item.url} />
+            <div className="recommendedOutfit-items">
+              <img key={index} width={250} src={item.url} />
+              <div style={{ margin: "5px" }}>{item.item}</div>
+            </div>
           ))}
-        </>
+        </div>
       );
     } else if (
       weather?.main.temp.toFixed(0) >= 9 &&
       weather?.main.temp.toFixed(0) <= 11
     ) {
       return (
-        <>
+        <div>
           {recommendedOutfit.between0911.map((item, index) => (
-            <img key={index} width={250} src={item.url} />
+            <div className="recommendedOutfit-items">
+              <img key={index} width={250} src={item.url} />
+              <div style={{ margin: "5px" }}>{item.item}</div>
+            </div>
           ))}
-        </>
+        </div>
       );
     } else if (
       weather?.main.temp.toFixed(0) >= 5 &&
       weather?.main.temp.toFixed(0) <= 8
     ) {
       return (
-        <>
+        <div>
           {recommendedOutfit.between0508.map((item, index) => (
-            <img key={index} width={250} src={item.url} />
+            <div className="recommendedOutfit-items">
+              <img key={index} width={250} src={item.url} />
+              <div style={{ margin: "5px" }}>{item.item}</div>
+            </div>
           ))}
-        </>
+        </div>
       );
     } else {
       return (
-        <>
+        <div>
           {recommendedOutfit.under04.map((item, index) => (
-            <img key={index} width={250} src={item.url} />
+            <div className="recommendedOutfit-items">
+              <img key={index} width={250} src={item.url} />
+              <div style={{ margin: "5px" }}>{item.item}</div>
+            </div>
           ))}
-        </>
+        </div>
       );
     }
   };
