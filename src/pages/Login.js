@@ -43,7 +43,7 @@ const Login = ({ setAuthenticate }) => {
     });
   };
   return (
-    <div style={{ overflowY: "scroll" }}>
+    <div>
       <ThemeProvider theme={theme}>
         <Grid container component="main" sx={{ height: "100vh" }}>
           <CssBaseline />

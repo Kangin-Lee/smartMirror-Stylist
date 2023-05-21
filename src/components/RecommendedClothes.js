@@ -108,7 +108,7 @@ const RecommendedClothes = ({ weather }) => {
       },
       {
         name: "원피스",
-        url: "https://image.msscdn.net/images/goods_img/20230215/3085822/3085822_16796325336229_500.jpg",
+        url: "https://image.msscdn.net/images/goods_img/20220705/2647699/2647699_2_500.jpg",
       },
       {
         name: "니트 반팔",
@@ -212,10 +212,430 @@ const RecommendedClothes = ({ weather }) => {
       },
       {
         name: "버킷햇",
-        url: "https://image.msscdn.net/images/goods_img/20170616/578956/578956_3_500.jpg",
+        url: "https://image.msscdn.net/images/goods_img/20210511/1945782/1945782_2_500.jpg",
       },
     ],
   };
+
+  const recommendedOutfit = {
+    over28: [
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/17949/detail_17949_1_500.jpg?202305202305",
+        item: ["#민소매 ", "#데님 팬츠 ", "#볼캡 ", "#크로스백 ", "#스니커즈"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/23138/detail_23138_1_500.jpg?202305202305",
+        item: ["#크롭티 ", "#데님 팬츠 ", "#볼캡 ", "#에코백 ", "#스니커즈"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/23190/detail_23190_1_500.jpg?202305202305",
+        item: ["#반팔 ", "#반바지 ", "#볼캡 ", "#백팩 ", "#샌들"],
+      },
+    ],
+    between2327: [
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22135/detail_22135_1_500.jpg?202305202305",
+        item: [
+          "#니트조끼 ",
+          "#반팔 ",
+          "#슬랙스 ",
+          "#토트백 ",
+          "#구두 ",
+          "#안경",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22975/detail_22975_1_500.jpg?202305202305",
+        item: [
+          "#반팔 셔츠 ",
+          "#반팔 ",
+          "#코튼 팬츠 ",
+          "#단화 ",
+          "#크로스백 ",
+          "#안경",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22950/detail_22950_1_500.jpg?202305202305",
+        item: ["#니트 반팔 ", "#슬랙스 ", "#토트백 ", "#구두"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22905/detail_22905_1_500.jpg?202305202305",
+        item: ["#원피스 ", "#단화 ", "#에코백 ", "#안경"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/23151/detail_23151_1_500.jpg?202305202305",
+        item: ["#반팔 ", "#반바지 ", "#백팩 ", "#볼캡 ", "#스니커즈"],
+      },
+    ],
+    between2022: [
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22265/detail_22265_1_500.jpg?202305210005",
+        item: ["#롱슬리브 ", "#데님 팬츠 ", "#안경 ", "#스니커즈"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22630/detail_22630_1_500.jpg?202305210005",
+        item: [
+          "#얇은 셔츠 ",
+          "#반팔 ",
+          "#데님 팬츠 ",
+          "#안경 ",
+          "#토트백 ",
+          "#단화",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22040/detail_22040_1_500.jpg?202305210005",
+        item: ["#맨투맨 ", "#데님 팬츠 ", "#볼캡 ", "#백팩 ", "#스니커즈"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22225/detail_22225_1_500.jpg?202305210005",
+        item: ["#후드티 ", "#데님 팬츠 ", "#백팩 ", "#볼캡 ", "#스니커즈"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22218/detail_22218_1_500.jpg?202305210005",
+        item: ["#맨투맨 ", "#코튼 팬츠 ", "#크로스백 ", "#볼캡 ", "#스니커즈"],
+      },
+    ],
+    between1719: [
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21939/detail_21939_1_500.jpg?202305210005",
+        item: [
+          "#바람막이 ",
+          "#반팔 ",
+          "#데님 팬츠 ",
+          "#볼캡 ",
+          "#크로스백 ",
+          "#스니커즈 ",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22056/detail_22056_1_500.jpg?202305210005",
+        item: [
+          "#데님 자켓 ",
+          "#반팔 ",
+          "#데님 팬츠 ",
+          "#볼캡 ",
+          "#스니커즈 ",
+          "#숄더백",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21987/detail_21987_1_500.jpg?202305210005",
+        item: ["#후드티 ", "#스웻 팬츠 ", "#볼캡 ", "#백팩 ", "#스니커즈"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22104/detail_22104_1_500.jpg?202305210005",
+        item: [
+          "#얇은 가디선 ",
+          "#반팔 ",
+          "#스웻 팬츠 ",
+          "#볼캡 ",
+          "#크로스백 ",
+          "#스니커즈",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22040/detail_22040_1_500.jpg?202305210005",
+        item: ["#맨투맨 ", "#데님 팬츠 ", "#볼캡 ", "#백팩 ", "#스니커즈"],
+      },
+    ],
+    between1216: [
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21846/detail_21846_1_500.jpg?202305210005",
+        item: [
+          "#후드집업 ",
+          "#롱슬리브 ",
+          "#데님 팬츠 ",
+          "#볼캡 ",
+          "#숄더백 ",
+          "#스니커즈",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22189/detail_22189_1_500.jpg?202305210005",
+        item: ["#얇은 니트 ", "#데님 팬츠 ", "#크로스백 ", "#단화"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21978/detail_21978_1_500.jpg?202305210005",
+        item: ["#맨투맨 ", "#데님 팬츠 ", "#안경 ", "#토트백 ", "#컨버스화"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22164/detail_22164_1_500.jpg?202305210005",
+        item: [
+          "#롱슬리브 ",
+          "#나일론 팬츠 ",
+          "#백팩 ",
+          "#시계 ",
+          "#볼캡 ",
+          "#스포츠 스니커즈",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21939/detail_21939_1_500.jpg?202305210005",
+        item: [
+          "#바람막이 ",
+          "#반팔 ",
+          "#데님 팬츠 ",
+          "#볼캡 ",
+          "#크로스백 ",
+          "#스니커즈",
+        ],
+      },
+    ],
+    between0911: [
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/22042/detail_22042_1_500.jpg?202305210005",
+        item: [
+          "#MA-1 ",
+          "#반팔 ",
+          "#데님 팬츠 ",
+          "#스포츠 스니커즈 ",
+          "#크로스백",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21896/detail_21896_1_500.jpg?202305210005",
+        item: [
+          "#바시티 자켓 ",
+          "#맨투맨 ",
+          "#데님 팬츠 ",
+          "#볼캡 ",
+          "#크로스백 ",
+          "#스니커즈",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/19114/detail_19114_1_500.jpg?202305210005",
+        item: ["#야상 ", "#니트 ", "#코튼 팬츠 ", "#토트백 ", "#스니커즈화"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21764/detail_21764_1_500.jpg?202305210005",
+        item: [
+          "#트렌치 코트 ",
+          "#셔츠 ",
+          "#데님 팬츠 ",
+          "#숄더백 ",
+          "#구두 ",
+          "#목걸이",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21359/detail_21359_1_500.jpg?202305210005",
+        item: [
+          "#플리스 자켓 ",
+          "#맨투맨 ",
+          "#데님 팬츠 ",
+          "#백팩 ",
+          "#안경 ",
+          "#스니커즈",
+        ],
+      },
+    ],
+    between0508: [
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21536/detail_21536_1_500.jpg?202305210005",
+        item: [
+          "#퀼팅 자켓 ",
+          "#후드티 ",
+          "#스웻 팬츠 ",
+          "#볼캡 ",
+          "#크로스백 ",
+          "#스니커즈",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21160/detail_21160_1_500.jpg?202305210005",
+        item: [
+          "#숏패딩 ",
+          "#맨투맨 ",
+          "#데님 팬츠 ",
+          "#크로스백 ",
+          "#볼캡 ",
+          "#스니커즈화",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/20712/detail_20712_1_500.jpg?202305210005",
+        item: [
+          "#숏 코트 ",
+          "#니트 ",
+          "#데님 팬츠 ",
+          "#볼캡 ",
+          "#백팩 ",
+          "#스니커즈",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21134/detail_21134_1_500.jpg?202305210005",
+        item: ["#무스탕 ", "#니트 ", "#데님 팬츠 ", "#크로스백 ", "#구두"],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21225/detail_21225_1_500.jpg?202305210005",
+        item: [
+          "#발마칸 코트 ",
+          "#니트 ",
+          "#데님 팬츠 ",
+          "#안경 ",
+          "#숄더백 ",
+          "#스니커즈",
+        ],
+      },
+    ],
+    under04: [
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/20847/detail_20847_1_500.jpg?202305210005",
+        item: [
+          "#롱패딩 ",
+          "#후드티 ",
+          "#데님 팬츠 ",
+          "#백팩 ",
+          "#볼캡 ",
+          "#스니커즈",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/20810/detail_20810_1_500.jpg?202305210005",
+        item: [
+          "#발마칸 코트 ",
+          "#니트 ",
+          "#데님 팬츠 ",
+          "#숄더백 ",
+          "#안경 ",
+          "#단화",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/20615/detail_20615_1_500.jpg?202305210005",
+        item: [
+          "#숏 코트 ",
+          "#니트 ",
+          "#셔츠 ",
+          "#코듀로이 팬츠 ",
+          "#숄더백 ",
+          "#머플러 ",
+          "#단화",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/21212/detail_21212_1_500.jpg?202305210005",
+        item: [
+          "#숏패딩 ",
+          "#후드티 ",
+          "#데님 팬츠 ",
+          "#비니 ",
+          "#스포츠 스니커즈 ",
+          "#팔찌",
+        ],
+      },
+      {
+        url: "https://image.msscdn.net/images/codimap/detail/20638/detail_20638_1_500.jpg?202305210005",
+        item: [
+          "#싱글 코트 ",
+          "#니트 ",
+          "#셔츠 ",
+          "#슬랙스 ",
+          "#구두 ",
+          "#머플러 ",
+          "#크로스백",
+        ],
+      },
+    ],
+  };
+
+  console.log(recommendedOutfit.between2022.map((item) => item.item[0]));
+  let recommendedItem = () => {
+    if (weather?.main.temp.toFixed(0) >= 28) {
+      return (
+        <>
+          {recommendedOutfit.over28.map((item, index) => (
+            <img key={index} width={250} src={item.url} />
+          ))}
+        </>
+      );
+    } else if (
+      weather?.main.temp.toFixed(0) >= 23 &&
+      weather?.main.temp.toFixed(0) <= 27
+    ) {
+      return (
+        <div>
+          {recommendedOutfit.between2327.map((item, index) => (
+            <div className="recommendedOutfit-items">
+              <img key={index} width={250} src={item.url} />
+              <div style={{ margin: "5px" }}>{item.item}</div>
+            </div>
+          ))}
+        </div>
+      );
+    } else if (
+      weather?.main.temp.toFixed(0) >= 20 &&
+      weather?.main.temp.toFixed(0) <= 22
+    ) {
+      return (
+        <div>
+          {recommendedOutfit.between2022.map((item, index) => (
+            <div className="recommendedOutfit-items">
+              <img key={index} width={250} src={item.url} />
+              <div style={{ margin: "5px" }}>{item.item}</div>
+            </div>
+          ))}
+        </div>
+      );
+    } else if (
+      weather?.main.temp.toFixed(0) >= 17 &&
+      weather?.main.temp.toFixed(0) <= 19
+    ) {
+      return (
+        <>
+          {recommendedOutfit.between1719.map((item, index) => (
+            <img key={index} width={250} src={item.url} />
+          ))}
+        </>
+      );
+    } else if (
+      weather?.main.temp.toFixed(0) >= 12 &&
+      weather?.main.temp.toFixed(0) <= 16
+    ) {
+      return (
+        <>
+          {recommendedOutfit.between1216.map((item, index) => (
+            <img key={index} width={250} src={item.url} />
+          ))}
+        </>
+      );
+    } else if (
+      weather?.main.temp.toFixed(0) >= 9 &&
+      weather?.main.temp.toFixed(0) <= 11
+    ) {
+      return (
+        <>
+          {recommendedOutfit.between0911.map((item, index) => (
+            <img key={index} width={250} src={item.url} />
+          ))}
+        </>
+      );
+    } else if (
+      weather?.main.temp.toFixed(0) >= 5 &&
+      weather?.main.temp.toFixed(0) <= 8
+    ) {
+      return (
+        <>
+          {recommendedOutfit.between0508.map((item, index) => (
+            <img key={index} width={250} src={item.url} />
+          ))}
+        </>
+      );
+    } else {
+      return (
+        <>
+          {recommendedOutfit.under04.map((item, index) => (
+            <img key={index} width={250} src={item.url} />
+          ))}
+        </>
+      );
+    }
+  };
+
   let filteredClothing = {
     OUTER: [],
     TOP: [],
@@ -230,14 +650,15 @@ const RecommendedClothes = ({ weather }) => {
         (image) =>
           image.name.includes("민소매") ||
           image.name.includes("크롭티") ||
+          image.name.includes("원피스") ||
           image.name.includes("반팔")
       ),
       BOTTOM: clothingData.BOTTOM.filter(
         (image) =>
           image.name.includes("반바지") ||
           image.name.includes("린넨 팬츠") ||
-          image.name.includes("코튼 팬츠") ||
           image.name.includes("스웻 팬츠") ||
+          image.name.includes("데님 팬츠") ||
           image.name.includes("슬랙스")
       ),
       ACCESSORIES: clothingData.ACCESSORIES.filter(
@@ -521,7 +942,13 @@ const RecommendedClothes = ({ weather }) => {
               </Fade>
             ))
           ) : (
-            <div>해당 없음</div>
+            <div className="not-found">
+              <FontAwesomeIcon
+                icon={faTriangleExclamation}
+                style={{ marginRight: "5px", color: "#ff0000" }}
+              />
+              해당 없음
+            </div>
           )}
         </div>
       </div>
@@ -563,6 +990,13 @@ const RecommendedClothes = ({ weather }) => {
             </Fade>
           ))}
         </div>
+      </div>
+
+      {/* 추천 착장============================================================ */}
+      <div>
+        <h1>Recommended Outfit</h1>
+        {recommendedItem()}
+        <div className="category-area"></div>
       </div>
 
       <div className="goTo-mycloth">
