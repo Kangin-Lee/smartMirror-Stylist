@@ -989,6 +989,18 @@ body {
   color: black;
   border-bottom: 3px solid black;
 }
+
+.mycloth-container{
+  padding: 30px 0;
+}
+
+.mycloth-section1{
+  display: flex;
+}
+
+.mycloth-section1 img{
+ 
+}
 /* login================================================= */
 .login-page-text {
   display: flex;
