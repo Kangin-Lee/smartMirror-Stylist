@@ -957,7 +957,6 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 .recommendedOutfit-items div {
@@ -990,16 +989,93 @@ body {
   border-bottom: 3px solid black;
 }
 
-.mycloth-container{
+.mycloth-section h1 {
+  font-family: "Comfortaa", cursive;
+}
+
+.mycloth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 30px 0;
 }
 
-.mycloth-section1{
-  display: flex;
+.mycloth-section h1,
+.mycloth-section h3,
+.mycloth-section h5 {
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.mycloth-section1 img{
- 
+.mycloth-section h6{
+  font-weight: bold;
+}
+
+.stylist {
+  font-family: "Caveat", cursive;
+  font-size: 1.5em;
+}
+
+.part1 {
+  background: url("/public/images/blouse.jpg")fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.part1-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+.part2 {
+  background-color: rgb(226, 226, 202);
+}
+
+.part2 button {
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: black;
+  border: 2px solid black;
+  background-color: transparent;
+  margin-bottom: 7px;
+}
+
+.part2 button:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5s;
+  border: 2px solid black;
+}
+
+.cloth-images{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  border: 3px solid black;
+  padding: 5px;
+  margin-top: 30px;
+}
+
+.cloth-images img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#clothRegister h2{
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+}
+.clothRegister-section{
+  margin: 30px 0;
 }
 /* login================================================= */
 .login-page-text {
