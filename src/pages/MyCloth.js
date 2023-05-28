@@ -4,7 +4,10 @@ import { Container } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Fade from "react-reveal/Fade";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTriangleExclamation,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
@@ -12,6 +15,8 @@ import { useState } from "react";
 
 const MyCloth = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedType, setSelectedType] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
   const [showRegister, setShowRegister] = useState(false);
 
   const handleImageUpload = (event) => {
@@ -27,41 +32,110 @@ const MyCloth = () => {
     }
   };
 
+  const handleTypeChange = (event, value) => {
+    setSelectedType(value);
+  };
+
+  const handleColorChange = (event, value) => {
+    setSelectedColor(value);
+  };
+
   const openRegisterCloth = () => {
     setShowRegister(true);
   };
 
   const category = [
-    { label: "아우터" },
-    { label: "상의" },
-    { label: "하의" },
-    { label: "모자" },
-    { label: "안경" },
-    { label: "시계" },
+    { label: "MA-1" },
+    { label: "야상" },
+    { label: "블루종" },
+    { label: "트렌치 코트" },
+    { label: "바시티 자켓" },
+    { label: "플리스 자켓" },
+    { label: "가죽 자켓" },
+    { label: "데님 자켓" },
+    { label: "롱패딩" },
+    { label: "숏패딩" },
+    { label: "더플 코트" },
+    { label: "싱글 코트" },
+    { label: "발마칸 코트" },
+    { label: "더블 코트" },
+    { label: "숏 코트" },
+    { label: "퀼팅 자켓" },
+    { label: "나트조끼" },
+    { label: "얇은 가디건" },
+    { label: "가디건" },
+    { label: "바람막이" },
+    { label: "후드집업" },
+    { label: "무스탕" },
+    { label: "블레이저" },
+    { label: "크롭티" },
+    { label: "원피스" },
+    { label: "니트반팔" },
+    { label: "민소매" },
+    { label: "반팔 셔츠" },
+    { label: "얇은 셔츠" },
+    { label: "맨투맨" },
+    { label: "후드티" },
+    { label: "롱슬리브" },
+    { label: "반팔" },
+    { label: "얇은 니트" },
+    { label: "니트" },
+    { label: "스웻 팬츠" },
+    { label: "데님 팬츠" },
+    { label: "코튼 팬츠" },
+    { label: "반바지" },
+    { label: "린넨 팬츠" },
+    { label: "슬랙스" },
+    { label: "볼캡" },
     { label: "머플러" },
+    { label: "비니" },
+    { label: "베레모" },
+    { label: "버킷햇" },
+    { label: "기타" },
   ];
 
   const color = [
-    { label: "블랙" },
-    { label: "화이트" },
-    { label: "그레이" },
-    { label: "네이비" },
-    { label: "카키" },
-    { label: "그린" },
-    { label: "블루" },
-    { label: "스카이 블루" },
-    { label: "브라운" },
-    { label: "베이지" },
-    { label: "오렌지" },
-    { label: "레드" },
-    { label: "퍼플" },
-    { label: "핑크" },
-    { label: "옐로우" },
-    { label: "버건디" },
+    { label: "검정색(Black)" },
+    { label: "흰색(White)" },
+    { label: "회색(Gray)" },
+    { label: "남색(Navy)" },
+    { label: "카키색(Khaki)" },
+    { label: "초록색(Green)" },
+    { label: "파란색(Blue)" },
+    { label: "하늘색(Sky Blue)" },
+    { label: "갈색(Brown)" },
+    { label: "베이지색(Beige)" },
+    { label: "주황색(Orange)" },
+    { label: "빨간색(Red)" },
+    { label: "자주색(Purple)" },
+    { label: "분홍색(Pink)" },
+    { label: "노란색(Yellow)" },
+    { label: "버건디색(Burgundy)" },
   ];
 
   const handleRegistration = (event) => {
     event.preventDefault();
+
+    if (!selectedImage || !selectedType || !selectedColor) {
+      alert("모든 정보를 입력해주세요.");
+      return;
+    }
+  };
+
+  const renderImagePreview = () => {
+    if (selectedImage) {
+      return (
+        <div className="cloth-images" style={{ border: "none" }}>
+          <img width={600} src={selectedImage} alt="사진을 올려주세요." />
+        </div>
+      );
+    } else {
+      return (
+        <div className="cloth-images" style={{ fontSize: "5rem" }}>
+          <FontAwesomeIcon icon={faPlus} />
+        </div>
+      );
+    }
   };
   return (
     <div className="mycloth-area">
@@ -151,26 +225,23 @@ const MyCloth = () => {
             <Container>
               <form onSubmit={handleRegistration}>
                 <div>
+                  <div className="cloth-images-box">{renderImagePreview()}</div>
                   <div>
-                    {selectedImage && (
-                      <div className="cloth-images">
-                        <img width={600} src={selectedImage} alt="Uploaded" />
-                      </div>
-                    )}
+                    <input type="file" onChange={handleImageUpload} />
                   </div>
-                  <input type="file" onChange={handleImageUpload} />
                 </div>
 
                 <div className="clothRegister-section">
-                  <h2>Category</h2>
-                  <h6>(선택하신 옷을 카테고리에 맞게 분류해 주세요.)</h6>
+                  <h2>Types of Clothes</h2>
+                  <h6>(옷이 어떤 종류인지 선택해 주세요.)</h6>
                   <Autocomplete
                     disablePortal
                     id="combo-box-demo"
+                    onChange={handleTypeChange}
                     options={category}
                     sx={{ width: 300 }}
                     renderInput={(params) => (
-                      <TextField {...params} label="카테고리" />
+                      <TextField {...params} label="종류 *" />
                     )}
                   />
                 </div>
@@ -186,8 +257,9 @@ const MyCloth = () => {
                     id="combo-box-demo"
                     options={color}
                     sx={{ width: 300 }}
+                    onChange={handleColorChange}
                     renderInput={(params) => (
-                      <TextField {...params} label="색상" />
+                      <TextField {...params} label="색상 *" />
                     )}
                   />
                 </div>
@@ -203,6 +275,7 @@ const MyCloth = () => {
                     label="보관 위치"
                     variant="outlined"
                     sx={{ width: 300 }}
+                    required
                   />
                 </div>
 
@@ -217,6 +290,7 @@ const MyCloth = () => {
                     label="별명"
                     variant="outlined"
                     sx={{ width: 300 }}
+                    required
                   />
                 </div>
 

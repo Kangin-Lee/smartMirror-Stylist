@@ -1053,21 +1053,27 @@ body {
   border: 2px solid black;
 }
 
+.cloth-images-box{
+  border: 3px solid black;
+  display:inline-block;
+  margin-top: 30px;
+  padding: 5px;
+}
+
 .cloth-images{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
-  height: fit-content;
-  border: 3px solid black;
-  padding: 5px;
-  margin-top: 30px;
+  width: 300px; /* 원하는 너비 값 */
+  height: 300px; /* 원하는 높이 값 */
+  overflow: hidden;
+  border: 3px dashed black;
 }
 
 .cloth-images img{
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 #clothRegister h2{
@@ -1076,6 +1082,15 @@ body {
 }
 .clothRegister-section{
   margin: 30px 0;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 30px;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 /* login================================================= */
 .login-page-text {
