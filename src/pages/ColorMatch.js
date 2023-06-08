@@ -309,6 +309,12 @@ const ColorMatch = () => {
           </div>
 
           <Colors userSelect={userSelect} selectColor={selectColor} />
+          <div style={{ fontWeight: "bold", fontSize: "1.1rem" }}>
+            * 컬러센서로 현재 가지고 있는 옷의 컬러매치 추천 받기{" "}
+            <a href="https://color-client.netlify.app/">
+              '컬러 센서로 추천' 바로 가기
+            </a>
+          </div>
         </Container>
       </div>
       <Footer />
